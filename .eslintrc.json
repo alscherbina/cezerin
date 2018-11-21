@@ -18,6 +18,14 @@
 		"react/jsx-filename-extension": "off",
 		"import/newline-after-import": 0,
 		"class-methods-use-this": 0,
-		"no-console": "off"
+		"no-console": "off",
+		"linebreak-style": "off"
+	},
+	"settings": {
+		"import/resolver": {
+			"webpack": {
+				"config": "webpack.config.admin.js"
+			}
+		}
 	}
 }

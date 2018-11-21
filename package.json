@@ -139,5 +139,8 @@
   "engines": {
     "node": "^8.0.0",
     "npm": "^5.0.0"
+  },
+  "devDependencies": {
+    "eslint-import-resolver-webpack": "^0.10.1"
   }
 }
