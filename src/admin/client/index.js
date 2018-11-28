@@ -3,7 +3,7 @@ import '../../../public/admin-assets/css/style.css';
 
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { createStore, applyMiddleware } from 'redux';
+import { createStore, compose, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
 import thunkMiddleware from 'redux-thunk';
 
@@ -19,7 +19,14 @@ if (DEVELOPER_MODE === false) {
 	auth.validateCurrentToken();
 }
 
-const store = createStore(reducers, applyMiddleware(thunkMiddleware));
+const composeEnhancers = DEVELOPER_MODE
+	? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__
+	: null || compose;
+
+const store = createStore(
+	reducers,
+	composeEnhancers(applyMiddleware(thunkMiddleware))
+);
 store.dispatch(fetchSettings());
 
 if (window.WebSocket) {
